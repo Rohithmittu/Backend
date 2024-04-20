@@ -23,11 +23,19 @@ router.route("/register").post(
   ]),
   registerUser
 );
+
+
+
 // router.post("/register",registerUser)
 router.route("/login").post(loginUser);
 
-// secured Routes
 
+// secured Routes
 router.route("/logout").post(verifyJWT, logoutUser);
 router.route("/refresh-token").post(refreshAccessToken);
+
+
+
+
+
 export default router;
