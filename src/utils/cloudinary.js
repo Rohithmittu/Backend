@@ -18,18 +18,20 @@ const uploadOnCloudinary = async (localFilePath) => {
     // console.log("file is uploaded on cloudinary", response.url);
 
     // fs.unlinkSync(localFilePath);
-    if (fs.existsSync(localFilePath)) {
-      fs.unlinkSync(localFilePath);
-    }
+    // if (fs.existsSync(localFilePath)) {
+    //   fs.unlinkSync(localFilePath);
+    // }
+    fs.unlinkSync(localFilePath);
 
     return response;
   } catch (error) {
     // fs.unlinkSync(localFilePath); // to remove locally saved temporary file as the upload failed so that the server wont filled with junk file(unnessary files)
 
-    if (fs.existsSync(localFilePath)) {
-      fs.unlinkSync(localFilePath);
-    }
+    // if (fs.existsSync(localFilePath)) {
+    //   fs.unlinkSync(localFilePath);
+    // }
 
+    fs.unlinkSync(localFilePath);
     return null;
   }
 };
@@ -49,7 +51,5 @@ const deleteImageFromCloudinary = async (oldAvatar) => {
     return error;
   }
 };
-
-
 
 export { uploadOnCloudinary, deleteImageFromCloudinary };
